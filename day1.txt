@@ -1,0 +1,20 @@
+Ansible Intro:
+1. What is Ansible and Why?
+2. How Ansible works?
+
+Setup Lab:
+1. launching EC2 instances on AWS
+2. Install Ansible on EC2
+3. launcing Managed Nodes for Ansible
+or
+1. Setting up docker environment for Ansible 
+
+Testing Connectivity:
+1. Ansible Ad-hoc commands
+
+Ansible Architecture:
+1. Ansible Inventory
+2. Ansible Configuration
+3. Ansible modules
+
+ 
