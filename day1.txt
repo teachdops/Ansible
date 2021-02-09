@@ -1,4 +1,4 @@
-Ansible Intro:
+Ansible Introduction:
 1. What is Ansible and Why?
 2. How Ansible works?
 
