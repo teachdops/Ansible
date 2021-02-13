@@ -10,17 +10,10 @@ Linux, will require the installation of Docker and Docker Compose
 
 I recommend that the lab environment is downloaded to your respective home directory, i.e. -
 
-* Mac     - /Users/james/diveintoansible-lab
-* Windows - C:\Users\james\diveintoansible-lab
-* Linux   - /home/james/diveintoansible-lab
-
-On a Mac or Linux system, you should be able to clone the repository accordingly from a terminal whilst in your home directory with the following command -
 
 ```git clone https://github.com/devopsteach/Ansible.git```
 
-On Windows, if you don't have git installed, the lab can be downloaded using the following url - https://github.com/spurin/diveintoansible-lab/archive/master.zip
 
-After unzipping the archive, you must ensure that a single diveintoansible-lab folder is copied into your home directory (not multiple folders, i.e. diveintoansible-lab-master/diveintoansible-lab or diveintoansible-lab/diveintoansible-lab).  See the next section on Validation.
 
 ### Validation (IMPORTANT)
 
