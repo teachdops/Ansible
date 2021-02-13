@@ -29,7 +29,7 @@ Please verify that all of the lab files, are in the expected locations after eit
 
 ### Running the lab
 
-Once you've made necessary changes, you should then be able to run the following in your command prompt or terminal, directly from the diveintoansible-lab directory -
+Once you've made necessary changes, you should then be able to run the following in your command prompt or terminal, directly from the directory where you deployed this repo-
 
 ```
 docker-compose up
