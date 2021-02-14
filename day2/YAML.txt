@@ -1,0 +1,51 @@
+Ansible and YAML Syntax
+Before we move into using playbooks in Ansible, we need to take a quick moment to discuss YAML syntax. As we discussed in the first chapter of this book, our basic Ansible playbook used YAML syntax to output a simple message to the screen. The goal of YAML is to be easily readable by humans. If you’ve used similar configuration file formats like XML or JSON, you will notice YAML is also a lot easier to read compared to these other formats.
+
+With YAML being the basis of our Ansible playbooks, it’s appropriate to run through the basics of the syntax before moving on to more playbook examples. If you’re already familiar working with YAML, feel free to move ahead to the next section of the chapter:
+YAML File Names End with .yml – All our playbooks will use the .yml (or) .yaml file name extension, and this lets everyone know it’s a YAML format file.
+
+Syntax Starts with Three Dashes – The first thing you’ll notice is our plays in playbooks all start with three dashes (---). This will allow applications reading the file to know it is a YAML format file.
+
+Whitespace Denotes Structure – Indentation and whitespace in our YAML file denote the structure of the file. If your indentation is out of place, this could mean your configuration or playbooks are not being read correctly. Make sure you never use a tab character as indentation.
+
+A Comment Uses the Hash Symbol – You’ll most likely want to use comments through your playbook. All comments are preceded with the hash (#) symbol.
+
+List Members Use a Leading Hyphen – When displaying a list of items, all items in the list will begin at the same indentation level and start with a hyphen (-). Here is an example list of operating systems, using two spaces and then a hyphen before each of the values:
+
+---
+Operating Systems:
+  - Ubuntu
+  - Debian
+  - Red Hat
+  - Centos
+  - Windows
+  - Mac
+Dictionaries Are Represented As a “Key: Value” – We simply add values to a dictionary by indenting our values after the dictionary name and then adding a key-value pair on each line. Here is an example of a dictionary in YAML where we have two dictionaries, one named vince and the second named neil. Both then have three key-value pairs added in each with keys specified as full_name, job, and comment:
+
+---
+vince:
+  full_name: Vincent Sesto
+  job: devops engineer
+  comment: Ansible is Fun!
+neil:
+  full_name: Neil Diamond
+  job: Singer and Songwriter
+  comment: Good Lord!
+Span Multiple Lines with a Pipe – When needing to add multiple lines of data for one entry, you can use the pipe (|) symbol to add multiple lines and will include the new line in the YAML file, while using the less than (>) symbol will ignore any new lines. In the following example, we are setting environment variables to be used on a system and are using the pipe symbol to have all new line characters present:
+
+env: |-
+  DB_HOST= "database.host.com"
+  DB_DATABASE= "testdb"
+  DB_USERNAME= "dbadmin"
+  SUDO= "root"
+  JAVA_HOME= "/usr/lib/jvm/java-11-oracle"
+  HOME= "/home/ubuntu"
+  USER= "ubuntu"
+  MAIL= "/var/mail/ubuntu"
+The following example is using the less than symbol to create a message of the day entry where the following four lines will all be listed on one line:
+motd: >
+  Welcome to your new system
+  where everything from this
+  message should be on the
+  same line.
+YAML is an acronym for “YAML Ain’t Markup Language” or “Yet Another Markup Language” and is being widely used across different languages due to the ease of reading and the fact it is being widely supported by different programming languages. 
