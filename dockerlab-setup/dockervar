@@ -1,0 +1,27 @@
+a() {
+	docker exec -it ubuntu-c bash -c "echo 'PS1='\''ansibleC# '\' >> /root/.bashrc; bash";
+}
+
+u1() {
+        docker exec -it ubuntu1 bash -c "echo 'PS1='\''ubuntu1# '\' >> /root/.bashrc; bash";
+}
+
+u2() {
+        docker exec -it ubuntu2 bash -c "echo 'PS1='\''ubuntu2# '\' >> /root/.bashrc; bash";
+}
+
+u3() {
+        docker exec -it ubuntu3 bash -c "echo 'PS1='\''ubuntu3# '\' >> /root/.bashrc; bash";
+}
+
+c1() {
+        docker exec -it centos1 bash -c "echo 'PS1='\''centos1# '\' >> /root/.bashrc; bash";
+}
+
+c2() {
+        docker exec -it centos2 bash -c "echo 'PS1='\''centos2# '\' >> /root/.bashrc; bash";
+}
+
+c3() {
+        docker exec -it centos3 bash -c "echo 'PS1='\''centos3# '\' >> /root/.bashrc; bash";
+}
