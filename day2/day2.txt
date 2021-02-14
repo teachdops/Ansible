@@ -1,0 +1,15 @@
+Playbooks:
+1. Creating Playbook
+2. Run Playbook
+
+Modules:
+1. yum - install packages
+2. file - create/remove a file/directory
+3. copy - copy file to managed nodes
+
+Webserver Installation:
+1. Install Apache webserver on Centos
+2. Install Apache webserver on Ubuntu
+
+Handlers & Notify:
+1. How to use notify and handlers in playbook
