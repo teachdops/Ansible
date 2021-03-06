@@ -1,0 +1,29 @@
+---
+- name: Modules File and Copy
+  hosts: centos
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Check Availibility of Targets
+      ping:
+    - name: Create dir named tomcat
+      file:
+        path: /opt/tomcat
+        state: directory
+    - name: Create file named tomcat.sh
+      file:
+        path: /opt/tomcat/tomcat.sh
+        state: touch
+    - name: Copy script content to tomcat.sh
+      copy:
+        dest: /opt/tomcat/tomcat.sh
+        content: |
+          #!/bin/bash
+          echo "File and Copy ansible modules created me"
+    - name: Change the ownership and mode
+      file:
+        path: /opt/tomcat
+        owner: ansible
+        group: ansible
+        mode: 0755
+        recurse: yes

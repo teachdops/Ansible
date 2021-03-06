@@ -1,0 +1,14 @@
+---
+- name: Modules Play
+  hosts: centos1
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Check Availability of Targets
+      ping:
+    - name: Install git on Targets
+      yum:
+        name: git
+        state: latest
+    - name: Display git Version
+      command: git --version

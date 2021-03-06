@@ -1,0 +1,13 @@
+---
+- name: Install git on Ubuntu
+  hosts: ubuntu
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Check Availability of Targets
+      ping:
+    - name: Install git on Ubuntu
+      apt:
+        name: git
+        state: latest
+

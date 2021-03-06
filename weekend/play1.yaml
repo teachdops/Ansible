@@ -1,0 +1,8 @@
+---
+- name: my first play
+  #HOST
+  hosts: linux
+  gather_facts: False
+  tasks:
+    - name: Check Availability of Targets
+      ping:

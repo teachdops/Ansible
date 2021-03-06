@@ -1,0 +1,14 @@
+---
+- name: Webserver Installation
+  hosts: centos1
+  gather_facts: False
+  become: yes
+  tasks:
+    - name: Apache webserver installation
+      yum:
+        name: httpd
+        state: present
+    - name: Start Apache Webserver Services
+      service:
+        name: httpd
+        state: started
