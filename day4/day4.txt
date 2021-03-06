@@ -1,0 +1,9 @@
+1. Ansible Roles
+	Ansible Galaxy
+
+2. Converting playbook into Roles
+
+3. Project1
+	- webserver Apache and Mysql server deployment with configuration
+4. Project2
+	- Linux Kernal patching

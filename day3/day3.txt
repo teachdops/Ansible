@@ -1,0 +1,25 @@
+1. Variables
+	- vars
+	- vars_files
+	- vars_promt
+	- hostvars
+	- groupvars
+        - passing var in commandline (-e key="value") 	
+2. Register
+	
+3. When (Condition)
+
+4. Looping
+	- loop
+	- with_items
+	- with_file
+
+5. Jinja2 Template
+
+6. Async, Seriel and Parallel
+
+7. Ansible Vault
+
+
+
+
