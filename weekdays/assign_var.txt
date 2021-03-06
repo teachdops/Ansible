@@ -1,0 +1,19 @@
+1. var_demo
+
+2. vars, vars_files and vars_prompt
+
+3. vars: 
+	classtype: 
+	wd:
+	hours:
+4. vars_files:
+	- 
+
+5. vars_prompt:
+	- password
+
+
+display()
+
+motd - fils, copy
+

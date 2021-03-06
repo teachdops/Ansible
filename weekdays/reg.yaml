@@ -1,0 +1,12 @@
+---
+- name: Understand register directive
+  hosts: centos1
+  tasks:
+    - name: get the hostname
+      command: hostname -f
+      register: command_output
+    - name: display output
+      debug: 
+        msg: "{{ command_output.stdout }}"
+
+

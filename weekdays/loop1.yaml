@@ -1,0 +1,25 @@
+---
+- name: when and loop combination
+  hosts: linux
+  become: yes
+  gather_facts: True
+  vars:
+    group: ansadmin
+  tasks:
+    - name: Create group ansadmin
+      group:
+        name: "{{ group }}"
+        state: present
+      when: ansible_distribution == "CentOS"
+      register: group_result
+    - name: create users
+      user:
+        name: "{{ item }}"
+        group: "{{ group }}"
+        state: present
+      loop:
+        - shashi
+        - maulik
+        - simbu
+      when: group_result is changed
+

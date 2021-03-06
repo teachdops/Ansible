@@ -1,0 +1,21 @@
+---
+- name: Reg with When demo
+  hosts: linux
+  become: yes
+  gather_facts: True
+  tasks:
+    - name: Find hostname and register
+      command: hostname -f
+      when: ansible_distribution == "CentOS"
+      register: com_output
+    - name: UnInstall Git on Centos
+      yum:
+        name: git
+        state: absent
+      when: com_output is changed
+    - name: Uninstall Git on Ubuntu
+      apt:
+        name: git
+        state: absent
+      when: com_output is skipped
+

@@ -1,0 +1,16 @@
+---
+- name: Install Git on Ubuntu and Centos
+  hosts: linux
+  become: yes
+  gather_facts: True
+  tasks:
+    - name: Install Git on Centos
+      yum:
+        name: git
+        state: latest
+      when: ansible_distribution == "CentOS"
+    - name: Install Git on Ubuntu
+      apt:
+        name: git
+        state: latest
+      when: ansible_distribution == "Ubuntu"

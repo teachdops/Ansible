@@ -1,0 +1,10 @@
+---
+- name: variable session
+  hosts: ubuntu
+  gather_facts: True
+    
+  tasks:
+    - name: display my variables
+      debug: 
+        msg: "{{ cmd_var }}"
+

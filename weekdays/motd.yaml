@@ -1,0 +1,16 @@
+---
+- name: Welcome Message MOTD
+  hosts: linux
+  vars:
+    motd: Welcom to Centos
+  tasks:
+    - name: Create Motd file
+      file:
+        path: /etc/motd
+        state: touch
+
+    - name: Copy the content to motd
+      copy:
+        dest: /etc/motd
+        content: |
+          Welcome to Centos
