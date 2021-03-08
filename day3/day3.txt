@@ -15,8 +15,11 @@
 	- with_file
 
 5. Jinja2 Template
+	- variable
+	- Condition
+	- loop
 
-6. Async, Seriel and Parallel
+6. Parallelism
 
 7. Ansible Vault
 
