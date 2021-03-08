@@ -1,0 +1,27 @@
+---
+- name: loop with_file example
+  hosts: linux
+  become: yes
+  tasks:
+    - name: Create path for key
+      file:
+        path: /home/shashi/.ssh/
+        state: directory
+        owner: shashi
+        group: shashi
+      register: path_result
+    - name: Generate sshkey for user Shashi
+      command: ssh-keygen -f /home/shashi/.ssh/id_rsa -t rsa -N ''
+      when: path_result is changed
+    - name: change ownership of the keys
+      file:
+        path: /home/shashi/.ssh/
+        owner: shashi
+        group: shashi
+        recurse: yes
+    - name: Creat auth key
+      authorized_key:
+        user: shashi
+        key: "{{ item }}"
+      with_file:
+        - shashi.pub
