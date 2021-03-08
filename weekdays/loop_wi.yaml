@@ -1,0 +1,16 @@
+---
+- name: Example with_items
+  hosts: linux
+  become: yes
+  vars:
+    pass1: password
+  tasks:
+    - name: Create user
+      user:
+        name: "{{ item }}"
+        password: "{{ pass1 | password_hash('sha512') }}"
+        state: present
+      with_items:
+        - maulik
+        - shashi
+        - simbu
