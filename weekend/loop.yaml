@@ -1,0 +1,20 @@
+---
+- name: loop demo
+  hosts: centos1
+  become: yes
+  gather_facts: False
+  tasks:
+    - name: Installation of git tree and patch
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+        - git
+        - tree
+        - patch
+      register: install_result
+
+    - name: display
+      debug:
+        msg: "{{ item['rc'] }}"
+      loop: "{{ install_result['results'] }}"

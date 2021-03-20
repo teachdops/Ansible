@@ -1,5 +1,5 @@
 [control]
-ubuntu-c ansible_connection=local
+ubuntu-c ansible_connection=local ansible_become=true ansible_become_pass=password
 
 [centos]
 centos1 ansible_port=22
