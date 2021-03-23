@@ -1,11 +1,10 @@
 ---
-- name: import playbook which creates users
-  import_playbook: loop_wi.yaml
-
 - name: loop with_file example
   hosts: linux
   become: yes
   tasks:
+    - name: Including Tasks
+      include_tasks: loop_wi_task.yaml
     - name: Create path for key
       file:
         path: /home/shashi/.ssh/

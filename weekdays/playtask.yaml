@@ -1,0 +1,11 @@
+---
+- name: loop with_file example
+  hosts: linux
+  become: yes
+  vars:
+     pass1: password
+  tasks:
+    - name: create users task to be included
+      include_tasks: loop_wi_task.yaml
+    - name: set the auth key for user shashi
+      include_tasks: loop_wf_task1.yaml 

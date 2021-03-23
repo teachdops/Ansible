@@ -1,0 +1,50 @@
+---
+- name: loop with_file example
+  hosts: linux
+  serial: 2
+  become: yes
+  vars:
+    sus_path: /home/sus/.ssh
+    auth_key: /home/sus/.ssh/authorized_keys
+    sus_pub: /home/sus/.ssh/id_rsa.pub
+    local_path_file: /home/ansible/Ansible/weekend/sus.pub
+  tasks:
+    - name: Create path for key
+      file:
+        path: "{{ sus_path }}"
+        state: directory
+        owner: sus
+        group: sus
+      register: path_result
+    - name: Generate sshkey for user Sus
+      command: ssh-keygen -f "{{ sus_path }}"/id_rsa -t rsa -N ''
+      when: path_result is changed
+    - name: change ownership of the keys
+      file:
+        path: "{{ sus_path }}"
+        owner: sus
+        group: sus
+        recurse: yes
+    - name: read id_rsa.pub content
+      shell: cat "{{ sus_pub }}"
+      register: pub_output
+    - name: create sus.pub file on local
+      #command: touch "{{ local_path_file }}"
+      file:
+        path: "{{ local_path_file }}"
+        state: touch
+      delegate_to: ubuntu-c
+      register: pub_created
+    - name: copy and append the keys to sus.pub
+      shell: echo "{{ pub_output.stdout }}" >> sus.pub
+      delegate_to: localhost
+      when: pub_created is changed
+        
+    - name: Creat auth key
+      shell: echo "{{ item }}" >> "{{ auth_key }}"
+      with_file:
+        - sus.pub
+      
+    - name: display
+      debug:
+        msg: "{{ pub_output.stdout_lines }}"
