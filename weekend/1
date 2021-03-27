@@ -1,0 +1,23 @@
+---
+- name: Install Pre-requisites on Centos
+  yum:
+    name: "{{ item }}"
+    state: latest
+  when: ansible_distribution == "CentOS"
+  loop:
+    - tree
+    - git
+    - python3
+    - patch
+    - perl
+- name: Install Pre-requisites on Ubuntu
+  apt:
+   name: "{{ item }}" 
+   state: latest
+  when: ansible_distribution == "Ubuntu"
+  loop:
+    - tree
+    - git
+    - python3
+    - patch
+    - perl
