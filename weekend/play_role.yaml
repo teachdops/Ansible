@@ -1,0 +1,7 @@
+---
+- name: demo play_role
+  hosts: centos2,ubuntu2
+  become: yes
+  roles:
+    - roles/common
+    - roles/test

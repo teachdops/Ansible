@@ -1,0 +1,13 @@
+---
+- name: Installation of Apache on Centos
+  yum:
+   name: httpd
+   state: latest
+  when: ansible_distribution == "CentOS"
+  notify: restart httpd
+- name: Insallation of Apache on Ubuntu
+  apt:
+    name: apache2
+    state: latest
+  when: ansible_distribution == "Ubuntu"
+  notify: restart apache

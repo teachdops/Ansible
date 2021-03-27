@@ -1,0 +1,3 @@
+---
+    - name: Installation of Apache 
+      import_tasks: task2.yaml

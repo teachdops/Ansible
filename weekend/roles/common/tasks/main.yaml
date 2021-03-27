@@ -1,0 +1,2 @@
+---
+- include_tasks: task1.yaml
