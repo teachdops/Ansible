@@ -1,0 +1,7 @@
+---
+- name: Installation of webserver using roles
+  hosts: centos1
+  become: yes
+  roles:
+    - roles/common
+    - roles/web_server

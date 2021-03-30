@@ -1,0 +1,6 @@
+---
+- name: installation of pre-requisites
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop: "{{ package }}"
