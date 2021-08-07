@@ -1,0 +1,26 @@
+---
+- name: Installation of webserver
+  hosts: centos1
+  become: yes
+  tasks:
+    - name: Install Apache webserver
+      yum:
+        name: httpd
+        state: latest
+    - name: enable Apache in the systemd
+      service:
+        name: httpd
+        state: started
+        enabled: True
+    - name: modify the configuration file
+      shell: "cp -r /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd-bak.conf && sed -i 's/^Listen 80$/Listen 8080/g' /etc/httpd/conf/httpd.conf"
+      notify: restart Apache
+
+    - name: modify index.html
+      shell: 'echo "testing" > /var/www/html/index.html'
+      
+  handlers:
+    - name: restart Apache
+      service:
+        name: httpd
+        state: restarted

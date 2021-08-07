@@ -1,0 +1,13 @@
+[ubuntu]
+ubuntu1 ansible_user=root
+ubuntu2 ansible_user=root
+ubuntu3 ansible_user=root
+
+[centos]
+centos1 ansible_become=True ansible_become_password=password
+centos2 ansible_become=True ansible_become_password=password
+centos3 ansible_become=True ansible_become_password=password
+
+[both:children]
+ubuntu 
+centos 

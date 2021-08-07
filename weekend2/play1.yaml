@@ -1,0 +1,34 @@
+---
+- name: my first playbook
+  hosts: ubuntu
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Checking availability
+      ping:
+    - name: Installation of basic packages
+      apt:
+        name: tree
+        state: present
+    - name: Create file
+      file:
+        path: /tmp/testing.txt
+        state: touch
+        mode: 0744
+        owner: ansible
+        group: ansible
+    - name: Create Dir
+      file:
+        path: /tmp/testing
+        state: directory
+        owner: ansible
+        group: ansible
+    - name: copy hosts file to targets
+      copy:
+        src: test.sh
+        dest: /tmp/test.sh
+        owner: ansible
+        group: ansible
+        mode: 0755
+      
+
